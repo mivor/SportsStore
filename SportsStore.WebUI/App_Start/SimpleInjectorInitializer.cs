@@ -11,6 +11,7 @@ namespace SportsStore.WebUI.App_Start
     using SimpleInjector.Integration.Web.Mvc;
     using SportsStore.Domain.Abstract;
     using SportsStore.Domain.Temp;
+    using SportsStore.Domain.Concrete;
     
     public static class SimpleInjectorInitializer
     {
@@ -31,7 +32,7 @@ namespace SportsStore.WebUI.App_Start
      
         private static void InitializeContainer(Container container)
         {
-            container.RegisterSingle<IProductRepository, StubProductRepository>();
+            container.Register<IProductRepository, EFProductRepository>();
 
             // For instance:
             // container.Register<IUserRepository, SqlUserRepository>();
